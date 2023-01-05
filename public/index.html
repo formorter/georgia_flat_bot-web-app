@@ -193,8 +193,9 @@
     <textarea id="sample-input" placeholder="Enter your data here (JSON)">
     </textarea>
 
-
 </section>
+
+<button id="button" onclick="sendTime()">Send</button>
 
 <script type="application/javascript">
   Telegram.WebApp.ready();
@@ -236,11 +237,9 @@
   }
 
   function sendTime(spam) {
-    const repeat = spam ? 10 : 1;
-    for (let i = 0; i < repeat; i++) {
-      Telegram.WebApp.sendData(document.querySelector('#sample-input').value);
-      webviewClose();
-    }
+        Telegram.WebApp.sendData(document.querySelector('#sample-input').value);
+        webviewClose();
+
   }
 
   function requestLocation() {
