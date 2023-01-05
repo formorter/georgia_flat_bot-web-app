@@ -195,10 +195,12 @@
 
 </section>
 
+<button id="button" onclick="sendTime()">Send</button>
+
 <script type="application/javascript">
   Telegram.WebApp.ready();
   Telegram.WebApp.MainButton.show();
-  configureMainButton({text: 'Send data', color: 'var(--tg-theme-button-color, #50a8eb)', onclick: sendTime});
+  configureMainButton({text: 'Send data', color: '#008000', onclick: sendTime});
   Telegram.WebApp.MainButton.show();
 
   const initData = Telegram.WebApp.initData || '';
