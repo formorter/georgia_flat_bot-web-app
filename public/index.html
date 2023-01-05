@@ -200,6 +200,8 @@
 <script type="application/javascript">
   Telegram.WebApp.ready();
   Telegram.WebApp.MainButton.show();
+  configureMainButton({text: 'Send data', color: '#008000', onclick: sendTime});
+  Telegram.WebApp.MainButton.show();
 
   const initData = Telegram.WebApp.initData || '';
   const initDataUnsafe = Telegram.WebApp.initDataUnsafe || {};
