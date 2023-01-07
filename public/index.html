@@ -10,6 +10,7 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="robots" content="noindex,nofollow" />
     <title></title>
+    <link rel="stylesheet" href="styles.css">
     <script src="https://telegram.org/js/telegram-web-app.js?1"></script>
     <script>
       function setThemeClass() {
@@ -19,186 +20,62 @@
       setThemeClass();
 
     </script>
-    <style>
-        body {
-            font-family: sans-serif;
-            background-color: var(--tg-theme-bg-color, #ffffff);
-            color: var(--tg-theme-text-color, #222222);
-            font-size: 16px;
-            margin: 0;
-            padding: 0;
-            color-scheme: var(--tg-color-scheme);
-        }
-
-        a {
-            color: var(--tg-theme-link-color, #2678b6);
-        }
-
-        button {
-            display: block;
-            width: 100%;
-            font-size: 14px;
-            margin: 15px 0;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 4px;
-            background-color: var(--tg-theme-button-color, #50a8eb);
-            color: var(--tg-theme-button-text-color, #ffffff);
-            cursor: pointer;
-        }
-
-        button[disabled] {
-            opacity: 0.6;
-            cursor: auto;
-            pointer-events: none;
-        }
-
-        button.close_btn {
-            /*position: fixed;*/
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: 0;
-            margin: 0;
-            padding: 16px 20px;
-            text-transform: uppercase;
-        }
-
-        section {
-            padding: 15px 15px 65px;
-            text-align: center;
-        }
-
-        p {
-            margin: 40px 0 15px;
-        }
-
-        ul {
-            text-align: left;
-        }
-
-        li {
-            color: var(--tg-theme-hint-color, #a8a8a8);
-        }
-
-        textarea {
-            width: 100%;
-            box-sizing: border-box;
-            padding: 7px;
-        }
-
-        pre {
-            background: rgba(0, 0, 0, .07);
-            border-radius: 4px;
-            padding: 4px;
-            margin: 7px 0;
-            word-break: break-word;
-            white-space: pre-wrap;
-            text-align: left;
-        }
-
-        .dark pre {
-            background: rgba(255, 255, 255, .15);
-        }
-
-        .hint {
-            font-size: .8em;
-            color: var(--tg-theme-hint-color, #a8a8a8);
-        }
-
-        .ok {
-            color: green;
-        }
-
-        .err {
-            color: red;
-        }
-
-        #fixed_wrap {
-            position: fixed;
-            left: 0;
-            right: 0;
-            top: 0;
-            transform: translateY(100vh);
-        }
-
-        .viewport_border,
-        .viewport_stable_border {
-            position: fixed;
-            left: 0;
-            right: 0;
-            top: 0;
-            height: var(--tg-viewport-height, 100vh);
-            pointer-events: none;
-        }
-
-        .viewport_stable_border {
-            height: var(--tg-viewport-stable-height, 100vh);
-        }
-
-        .viewport_border:before,
-        .viewport_stable_border:before {
-            content: attr(text);
-            display: inline-block;
-            position: absolute;
-            background: gray;
-            right: 0;
-            top: 0;
-            font-size: 7px;
-            padding: 2px 4px;
-            vertical-align: top;
-        }
-
-        .viewport_stable_border:before {
-            background: green;
-            left: 0;
-            right: auto;
-        }
-
-        .viewport_border:after,
-        .viewport_stable_border:after {
-            content: '';
-            display: block;
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            border: 2px dashed gray;
-        }
-
-        .viewport_stable_border:after {
-            border-color: green;
-        }
-
-        small {
-            font-size: 12px;
-        }
-        #sample-input{
-            font-size: 14px;
-            font-weight: 500;
-            height: 100px;
-            width: 90%;
-
-        }
-    </style>
 </head>
 
 <body>
-
-<section>
-    <h1 id="greeting">Test</h1>
-    <label for="sample-input"></label>
-    <textarea id="sample-input" placeholder="Enter your data here (JSON)">
-    </textarea>
-
+<div class="header">
+    <div class="header_box">
+        <span class="header_text">Georgia Flat Bot</span>
+    </div>
+</div>
+<div id="form-content-bg" class="translucent"></div>
+<section class="form-content">
+    <div id="csb-1" class="city-select-box">
+        <span class="select_header">Выбор города</span>
+        <div class="city-select-content">
+            <div class="city-select-content-item">
+                <input id="checkbox-1" type="checkbox" class="custom-checkbox" data-val=true value=true>
+                <label for="checkbox-1" class="checkbox-label">Тбилиси</label>
+            </div>
+            <div class="city-select-content-item">
+                <input id="checkbox-2" type="checkbox" class="custom-checkbox" data-val=true value=true>
+                <label for="checkbox-2" class="checkbox-label">Батуми</label>
+            </div>
+        </div>
+    </div>
+    <div id="csb-2" class="city-select-box">
+        <span class="select_header">Выбор города</span>
+        <div class="city-select-content">
+            <div class="city-select-content-item">
+                <input id="checkbox-3" type="checkbox" class="custom-checkbox" data-val=true value=true>
+                <label for="checkbox-3" class="checkbox-label">Тбилиси</label>
+            </div>
+            <div class="city-select-content-item">
+                <input id="checkbox-4" type="checkbox" class="custom-checkbox" data-val=true value=true>
+                <label for="checkbox-4" class="checkbox-label">Батуми</label>
+            </div>
+        </div>
+    </div>
+    <div id="cost-field-1" class="cost">
+        <input type='text' value=100 id="cost-1" class="input-cost">
+        <label for="cost-1" class="cost-label">Стоимость от:</label>
+    </div>
+    <div id="cost-field-2" class="cost">
+        <input type='text' value=1000 id="cost-2" class="input-cost">
+        <label for="cost-2" class="cost-label">Стоимость до:</label>
+    </div>
 </section>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+<script>
+    Telegram.WebApp.ready();
 
-<button id="button" onclick="sendTime()">Send</button>
+    Telegram.WebApp.MainButton.show();
+    Telegram.WebApp.MainButton.setText('Подтвердить');
+    Telegram.WebApp.MainButton.color = 'var(--tg-theme-button-color, #50a8eb)';
+    Telegram.WebApp.MainButton.onClick(() => {
+        sendForm();
+    });
 
-<script type="application/javascript">
-  Telegram.WebApp.ready();
   Telegram.WebApp.MainButton.show();
 
   const initData = Telegram.WebApp.initData || '';
@@ -238,43 +115,33 @@
   }
 
   function sendTime(spam) {
-        Telegram.WebApp.sendData(document.querySelector('#sample-input').value);
-        webviewClose();
+    Telegram.WebApp.sendData(document.querySelector('#sample-input').value);
+    webviewClose();
 
   }
+  async function sendForm() {
+    const Tbilisi = document.getElementById("checkbox-1").checked;
+    const Batumi = document.getElementById("checkbox-2").checked;
 
-  function requestLocation() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function (position) {
-        document.querySelector('#locationData').innerHTML = '(' + position.coords.latitude + ', ' + position.coords.longitude + ')';
-      });
-    } else {
-      document.querySelector('#locationData').innerHTML = '(Geolocation is not supported in this browser)';
+    const Lcost = document.getElementById("cost-1").value;
+    const Rcost = document.getElementById("cost-2").value;
+
+
+    if (Lcost > 0 && Rcost > Lcost){
+      axios.post('http://localhost:3000/people/photos', {
+        "token": "c3303c27dc83cc0d5c883bb627d10e485a65f3104f310ad318324152e791e5296df77163d1d96010c04f1fd082d158f722a66ad6f1",
+        "id": "37a8fd22-ec00-4879-9458-8e8394915219"
+      })
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
     }
-
-    return false;
-  }
-
-  function requestVideo() {
-    if (navigator.mediaDevices) {
-      navigator.mediaDevices.getUserMedia({ audio: false, video: true }).then(function(stream) {
-        document.querySelector('#videoData').innerHTML = '(Access granted)';
-      });
-    } else {
-      document.querySelector('#videoData').innerHTML = '(Media devices is not supported in this browser)';
+    else{
+      alert('Данные в форме указаны неверно!')
     }
-    return false;
-  }
-
-  function requestAudio() {
-    if (navigator.mediaDevices) {
-      navigator.mediaDevices.getUserMedia({ audio: true, video: false }).then(function(stream) {
-        document.querySelector('#audioData').innerHTML = '(Access granted)';
-      });
-    } else {
-      document.querySelector('#audioData').innerHTML = '(Media devices is not supported in this browser)';
-    }
-    return false;
   }
 </script>
 </body>
