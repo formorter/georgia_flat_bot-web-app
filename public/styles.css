@@ -42,7 +42,7 @@ body {
     font-weight: 500;
     position: relative;
     user-select: none;
-    color: antiquewhite;
+    color: var(--tg-theme-text-color);
 }
 
 .header {
@@ -52,7 +52,7 @@ body {
     width: 100%;
     height: 50px;
     padding: 0 15px;
-    background-color: #3390EC;
+    background-color: var(--tg-theme-bg-color);
 
 }
 
@@ -74,8 +74,8 @@ body {
     width: 100%;
     display: grid;
     padding: 20px;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    grid-auto-rows: 125px;
+    grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
+    grid-auto-rows: 80%;
 }
 
 .city-select-box {
@@ -141,7 +141,7 @@ body {
     border: 1px solid #adb5bd;
     border-radius: 0.25em;
     margin-right: 0.5em;
-    background-color: rgba(19, 18, 18, 0.25);
+    background-color: var(--tg-theme-button-color);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 50% 50%;
@@ -260,7 +260,7 @@ button {
 
 button:hover {
     background-position: 100% 0;
-    moz-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
     -o-transition: all .4s ease-in-out;
     -webkit-transition: all .4s ease-in-out;
     transition: all .4s ease-in-out;

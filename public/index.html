@@ -3,12 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="MobileOptimized" content="176" />
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="robots" content="noindex,nofollow" />
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="MobileOptimized" content="176"/>
+    <meta name="HandheldFriendly" content="True"/>
+    <meta name="robots" content="noindex,nofollow"/>
     <title></title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://telegram.org/js/telegram-web-app.js?1"></script>
@@ -16,6 +16,7 @@
       function setThemeClass() {
         document.documentElement.className = Telegram.WebApp.colorScheme;
       }
+
       Telegram.WebApp.onEvent('themeChanged', setThemeClass);
       setThemeClass();
 
@@ -67,14 +68,12 @@
 </section>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
 <script>
-    Telegram.WebApp.ready();
+  Telegram.WebApp.ready();
 
-    Telegram.WebApp.MainButton.show();
-    Telegram.WebApp.MainButton.setText('Подтвердить');
-    Telegram.WebApp.MainButton.color = 'var(--tg-theme-button-color, #50a8eb)';
-    Telegram.WebApp.MainButton.onClick(() => {
-        sendForm();
-    });
+  Telegram.WebApp.MainButton.show();
+  Telegram.WebApp.MainButton.setText('Подтвердить');
+  Telegram.WebApp.MainButton.color = 'var(--tg-theme-button-color, #50a8eb)';
+  Telegram.WebApp.MainButton.onClick(sendForm);
 
   Telegram.WebApp.MainButton.show();
 
@@ -89,36 +88,28 @@
   Telegram.WebApp.MainButton
     .setText('CLOSE WEBVIEW')
     .show()
-    .onClick(function(){ webviewClose(); });
+    .onClick(function () {
+      webviewClose();
+    });
 
-  Telegram.WebApp.onEvent('themeChanged', function() {
+  Telegram.WebApp.onEvent('themeChanged', function () {
     document.querySelector('#themeData').innerHTML = JSON.stringify(Telegram.WebApp.themeParams, null, 2);
   });
-
-  function toggleMainButton(el) {
-    const mainButton = Telegram.WebApp.MainButton;
-    if (mainButton.isVisible) {
-      mainButton.hide();
-      el.innerHTML = 'Show Main Button';
-    } else {
-      mainButton.show();
-      el.innerHTML = 'Hide Main Button';
-    }
-  }
-
-  function webviewExpand() {
-    Telegram.WebApp.expand();
-  }
 
   function webviewClose() {
     Telegram.WebApp.close();
   }
 
   function sendTime(spam) {
-    Telegram.WebApp.sendData(document.querySelector('#sample-input').value);
+    const Tbilisi = document.getElementById("checkbox-1").checked;
+    const Batumi = document.getElementById("checkbox-2").checked;
+
+    const Lcost = document.getElementById("cost-1").value;
+    const Rcost = document.getElementById("cost-2").value;
     webviewClose();
 
   }
+
   async function sendForm() {
     const Tbilisi = document.getElementById("checkbox-1").checked;
     const Batumi = document.getElementById("checkbox-2").checked;
@@ -126,21 +117,19 @@
     const Lcost = document.getElementById("cost-1").value;
     const Rcost = document.getElementById("cost-2").value;
 
+    const data = {
 
-    if (Lcost > 0 && Rcost > Lcost){
-      axios.post('http://localhost:3000/people/photos', {
-        "token": "c3303c27dc83cc0d5c883bb627d10e485a65f3104f310ad318324152e791e5296df77163d1d96010c04f1fd082d158f722a66ad6f1",
-        "id": "37a8fd22-ec00-4879-9458-8e8394915219"
-      })
-        .then(function (response) {
-          console.log(response);
-        })
-        .catch(function (error) {
-          console.log(error);
-        });
+      Tbilisi,
+      Batumi,
+      Lcost,
+      Rcost,
+
     }
-    else{
-      alert('Данные в форме указаны неверно!')
+    if (Lcost > 0 && Rcost > Lcost) {
+      Telegram.WebApp.sendData(data);
+      webviewClose();
+    } else {
+      alert("Неверно введены данные");
     }
   }
 </script>
