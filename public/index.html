@@ -85,8 +85,8 @@
   }
 
   async function sendForm() {
-    const Tbilisi = document.getElementById("checkbox-1").checked;
-    const Batumi = document.getElementById("checkbox-2").checked;
+    const Tbilisi = document.getElementById("checkbox-1").checked.toString();
+    const Batumi = document.getElementById("checkbox-2").checked.toString();
 
     const Lcost = document.getElementById("cost-1").value;
     const Rcost = document.getElementById("cost-2").value;
@@ -102,7 +102,6 @@
 
     console.log('Clicked: ', data);
     if (Lcost > 0 && Rcost > Lcost) {
-      // dict to string
         const dataString = JSON.stringify(data);
       Telegram.WebApp.sendData(dataString);
       webviewClose();
