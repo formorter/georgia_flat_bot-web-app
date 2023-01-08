@@ -58,7 +58,6 @@ body {
 
 #form-content-bg {
     user-select: none;
-    cursor: none;
     background-repeat: repeat;
     background-image: url('../icons/pattern-3.svg');
     position: absolute;
