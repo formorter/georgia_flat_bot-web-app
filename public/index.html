@@ -72,25 +72,9 @@
 
   Telegram.WebApp.MainButton.show();
   Telegram.WebApp.MainButton.setText('Подтвердить');
-  Telegram.WebApp.MainButton.color = 'var(--tg-theme-button-color, #50a8eb)';
   Telegram.WebApp.MainButton.onClick(() => { sendForm() })
 
   Telegram.WebApp.MainButton.show();
-
-  const initData = Telegram.WebApp.initData || '';
-  const initDataUnsafe = Telegram.WebApp.initDataUnsafe || {};
-
-  document.querySelector('#greeting').innerHTML = `Hi, ${initDataUnsafe.user.first_name}!`;
-  document.querySelector('#initData').innerHTML = JSON.stringify(initData, null, 2);
-  document.querySelector('#initDataUnsafe').innerHTML = JSON.stringify(initDataUnsafe, null, 2);
-  document.querySelector('#themeData').html(JSON.stringify(Telegram.WebApp.themeParams, null, 2));
-
-  Telegram.WebApp.MainButton
-    .setText('CLOSE WEBVIEW')
-    .show()
-    .onClick(function () {
-      webviewClose();
-    });
 
   Telegram.WebApp.onEvent('themeChanged', function () {
     document.querySelector('#themeData').innerHTML = JSON.stringify(Telegram.WebApp.themeParams, null, 2);
@@ -115,6 +99,8 @@
       Rcost,
 
     }
+
+    console.log('Clicked: ', data);
     if (Lcost > 0 && Rcost > Lcost) {
       Telegram.WebApp.sendData(data);
       webviewClose();
