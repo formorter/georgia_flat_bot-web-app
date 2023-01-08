@@ -102,7 +102,9 @@
 
     console.log('Clicked: ', data);
     if (Lcost > 0 && Rcost > Lcost) {
-      Telegram.WebApp.sendData(data.toString());
+      // dict to string
+        const dataString = JSON.stringify(data);
+      Telegram.WebApp.sendData(dataString);
       webviewClose();
     } else {
       alert("Неверно введены данные");
