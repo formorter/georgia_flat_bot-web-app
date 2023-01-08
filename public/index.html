@@ -73,7 +73,7 @@
   Telegram.WebApp.MainButton.show();
   Telegram.WebApp.MainButton.setText('Подтвердить');
   Telegram.WebApp.MainButton.color = 'var(--tg-theme-button-color, #50a8eb)';
-  Telegram.WebApp.MainButton.onClick(sendForm);
+  Telegram.WebApp.MainButton.onClick(() => { sendForm() })
 
   Telegram.WebApp.MainButton.show();
 
@@ -98,16 +98,6 @@
 
   function webviewClose() {
     Telegram.WebApp.close();
-  }
-
-  function sendTime(spam) {
-    const Tbilisi = document.getElementById("checkbox-1").checked;
-    const Batumi = document.getElementById("checkbox-2").checked;
-
-    const Lcost = document.getElementById("cost-1").value;
-    const Rcost = document.getElementById("cost-2").value;
-    webviewClose();
-
   }
 
   async function sendForm() {
