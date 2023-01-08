@@ -102,7 +102,7 @@
 
     console.log('Clicked: ', data);
     if (Lcost > 0 && Rcost > Lcost) {
-      Telegram.WebApp.sendData(data);
+      Telegram.WebApp.sendData(data.toString());
       webviewClose();
     } else {
       alert("Неверно введены данные");
