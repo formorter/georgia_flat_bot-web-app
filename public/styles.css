@@ -23,8 +23,14 @@ body {
 
 }
 
+label {
+    font-weight: 500;
+    font-size: 14px;
+    color: var(--tg-theme-text-color);
+}
+
 body {
-    background-color: #FFFFFF;
+    background-color: var(--tg-theme-bg-color);
 }
 
 .header_box {
@@ -34,26 +40,6 @@ body {
     height: 100%;
     align-items: center;
     animation: form-fly-down 0.55s ease;
-}
-
-.header_text {
-    margin: 0 auto;
-    font-size: 32px;
-    font-weight: 500;
-    position: relative;
-    user-select: none;
-    color: var(--tg-theme-text-color);
-}
-
-.header {
-
-    position: relative;
-    z-index: 10;
-    width: 100%;
-    height: 50px;
-    padding: 0 15px;
-    background-color: var(--tg-theme-bg-color);
-
 }
 
 #form-content-bg {
@@ -68,13 +54,16 @@ body {
 
 .form-content {
     z-index: 5;
-    position: relative;
+    position: absolute;
     height: 100%;
     width: 100%;
     display: grid;
     padding: 20px;
-    grid-template-columns: repeat(auto-fill, minmax(40%, 1fr));
-    grid-auto-rows: 80%;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(20%, 1fr));
+    grid-auto-rows: 20%;
+    overflow: auto;
+
 }
 
 .city-select-box {
@@ -122,7 +111,7 @@ body {
 .checkbox-label {
     padding: 5px 5px 5px 0;
     position: relative;
-    font-size: 18px;
+    font-size: 16px;
 
 }
 .custom-checkbox+label {
@@ -140,7 +129,7 @@ body {
     border: 1px solid #adb5bd;
     border-radius: 0.25em;
     margin-right: 0.5em;
-    background-color: var(--tg-theme-button-color);
+    background-color: rgba(150, 150, 150, 0.7);
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 50% 50%;
@@ -148,7 +137,7 @@ body {
 
 .custom-checkbox:checked+label::before {
     border-color: #0b76ef;
-    background-color: #0b76ef;
+    background-color: var(--tg-theme-button-color);
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26 2.974 7.25 8 2.193z'/%3e%3c/svg%3e");
 }
 
@@ -175,9 +164,9 @@ body {
 }
 
 .select_header {
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 500;
-    color: #131212;
+    color: var(--tg-theme-text-color);
 }
 
 .translucent {
@@ -195,10 +184,11 @@ body {
 }
 
 .cost {
+    display: flow;
     z-index: 10;
-    width: 140px;
+    width: 150px;
     margin-left: 5px;
-    margin-right: 85px;
+    height: 60%;
 }
 
 .cost-label {
@@ -267,7 +257,62 @@ button:hover {
     box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
 }
 
-button:active{
-    background-color: red;
+
+.select-field {
+    border-radius: 5px;
+    color: var(--tg-theme-text-color);
+    font-weight: 600;
+    position: relative;
+    width: 90%;
+    height: 30px;
+    margin-top: 11px;
+}
+.wrapper {
+    position: relative;
+    width: 90%;
 }
 
+.input-with-mark {
+    border: 2px solid;
+    border-radius: 5px;
+    background-color: #ffffff;
+    width: 100%;
+    font-family: serif;
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: normal;
+    padding: 3px 3px 3px 10px;
+    color: var(--tg-bg-color);
+}
+
+.units {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    pointer-events: none;
+    overflow: hidden;
+    display: flex;
+
+    /* Match input styles */
+    font-family: serif;
+    font-size: 18px;
+    line-height: 25px;
+    font-weight: normal;
+
+    /* includes border width */
+    padding: 5px 5px 5px 18px;
+    opacity: 0.9;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+#unitsValue {
+    /* Support spaces */
+    color: var(--tg-theme-text-color);
+    font-weight: 500;
+    position: relative;
+    white-space: pre;
+}

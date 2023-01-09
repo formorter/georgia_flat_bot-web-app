@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://telegram.org/js/telegram-web-app.js?1"></script>
     <script>
+
       function setThemeClass() {
         document.documentElement.className = Telegram.WebApp.colorScheme;
       }
@@ -24,12 +25,6 @@
 </head>
 
 <body>
-<div class="header">
-    <div class="header_box">
-        <span class="header_text">Georgia Flat Bot</span>
-    </div>
-</div>
-<div id="form-content-bg" class="translucent"></div>
 <section class="form-content">
     <div id="csb-1" class="city-select-box">
         <span class="select_header">Выбор города</span>
@@ -45,34 +40,87 @@
         </div>
     </div>
     <div id="csb-2" class="city-select-box">
-        <span class="select_header">Выбор города</span>
-        <div class="city-select-content">
-            <div class="city-select-content-item">
-                <input id="checkbox-3" type="checkbox" class="custom-checkbox" data-val=true value=true>
-                <label for="checkbox-3" class="checkbox-label">Тбилиси</label>
-            </div>
-            <div class="city-select-content-item">
-                <input id="checkbox-4" type="checkbox" class="custom-checkbox" data-val=true value=true>
-                <label for="checkbox-4" class="checkbox-label">Батуми</label>
-            </div>
+        <span class="select_header">Выбор района</span>
+        <div class="in-city-select-content">
+            <input id="district-input" type="text" list="districts" class="select-field"/>
+            <datalist id="districts" class="select-field__datalist" >
+                <option>Район №1</option>
+                <option>Район №2</option>
+                <option>Район №3</option>
+                <option>Район №4</option>
+            </datalist>
         </div>
     </div>
-    <div id="cost-field-1" class="cost">
-        <input type='text' value=100 id="cost-1" class="input-cost">
-        <label for="cost-1" class="cost-label">Стоимость от:</label>
+    <div class="wrapper">
+        <input id="cost-1" class="input-with-mark" type="number" value=0 min=0 step="1" max=999999999/>
+        <label for="cost-1" class="cost-label">Стоимость от</label>
+        <div class="units">
+            <span class="invisible" id="cost-1-hiddenValue">0</span>
+            <span class="units-value" id="cost-1-unitsValue"> руб.</span>
+        </div>
     </div>
-    <div id="cost-field-2" class="cost">
-        <input type='text' value=1000 id="cost-2" class="input-cost">
-        <label for="cost-2" class="cost-label">Стоимость до:</label>
+    <div class="wrapper">
+        <input id="cost-2" class="input-with-mark" type="number" value=75000 min=0 step="1" max=999999999/>
+        <label for="cost-2" class="cost-label">Стоимость от</label>
+        <div class="units">
+            <span class="invisible" id="cost-2-hiddenValue">75000</span>
+            <span class="units-value" id="cost-2-unitsValue"> руб.</span>
+        </div>
+    </div>
+    <div id="area-field-1" class="cost">
+        <input type='number' value=25 id="area-1" class="input-cost" min="0" step="any">
+        <label for="area-1" class="cost-label">Площадь от</label>
+    </div>
+    <div id="area-field-2" class="cost">
+        <input type='number' value=75 id="area-2" class="input-cost" min="0" step="any">
+        <label for="area-2" class="cost-label">Площадь до</label>
     </div>
 </section>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
 <script>
+  // Input Validation
+  const cost_1 = document.getElementById("cost-1");
+  const cost_1_hiddenValue = document.getElementById("cost-1-hiddenValue");
+  cost_1.addEventListener("input", () => { // Стоимость от
+    if (cost_1.value > 999999999) {
+      cost_1.value = 999999999;
+    }
+    else if (cost_1.value.length === 0) {
+      cost_1.value = 0;
+      cost_1_hiddenValue.innerHTML = "0";
+    } else if (cost_1_hiddenValue.innerHTML === "0") {
+      cost_1_hiddenValue.innerHTML = cost_1.value.substring(1);
+      cost_1.value = cost_1.value.substring(1);
+    } else {
+      cost_1_hiddenValue.innerHTML = cost_1.value;
+    }
+  });
+  const cost_2 = document.getElementById("cost-2"); // Стоимость до
+  const cost_2_hiddenValue = document.getElementById("cost-2-hiddenValue");
+  cost_2.addEventListener("input", () => { // Стоимость до
+    if (cost_2.value > 999999999){
+      cost_2.value = 999999999;
+    }
+    else if (cost_2.value.length === 0) {
+      cost_2.value = 0;
+      cost_2_hiddenValue.innerHTML = "0";
+    } else if (cost_2_hiddenValue.innerHTML === "0") {
+      cost_2_hiddenValue.innerHTML = cost_2.value.substring(1);
+      cost_2.value = cost_2.value.substring(1);
+    } else {
+      cost_2_hiddenValue.innerHTML = cost_2.value;
+    }
+  });
+
+
+  // Telegram Web App
   Telegram.WebApp.ready();
 
   Telegram.WebApp.MainButton.show();
   Telegram.WebApp.MainButton.setText('Подтвердить');
-  Telegram.WebApp.MainButton.onClick(() => { sendForm() })
+  Telegram.WebApp.MainButton.onClick(() => {
+    sendForm()
+  })
 
   Telegram.WebApp.MainButton.show();
 
@@ -88,27 +136,36 @@
     const Tbilisi = document.getElementById("checkbox-1").checked.toString();
     const Batumi = document.getElementById("checkbox-2").checked.toString();
 
-    const Lcost = document.getElementById("cost-1").value;
-    const Rcost = document.getElementById("cost-2").value;
+    const price_from = document.getElementById("cost-1").value;
+    const price_to = document.getElementById("cost-2").value;
+
+    const area_from = document.getElementById("area-1").value;
+    const area_to = document.getElementById("area-2").value;
+
+    const district = document.getElementById("district-input").value;
 
     const data = {
 
-      Tbilisi,
-      Batumi,
-      Lcost,
-      Rcost,
+      city: Tbilisi && Batumi ? '*' : Tbilisi ? "Tbilisi" : "Batumi",
+      price_from,
+      price_to,
+      area_from,
+      area_to,
+      district,
 
     }
 
-    console.log('Clicked: ', data);
-    if (Lcost > 0 && Rcost > Lcost) {
-        const dataString = JSON.stringify(data);
+    if (price_from > 0 && price_to > price_from && area_from > 0 && area_to > area_from && district.length > 0) {
+      const dataString = JSON.stringify(data);
       Telegram.WebApp.sendData(dataString);
       webviewClose();
     } else {
       alert("Неверно введены данные");
     }
   }
+</script>
+<script>
+
 </script>
 </body>
 </html>
