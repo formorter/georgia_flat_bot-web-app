@@ -14,16 +14,6 @@
     <script src="https://telegram.org/js/telegram-web-app.js?1"></script>
     <script>
 
-      Telegram.WebApp.ready();
-
-      Telegram.WebApp.MainButton.show();
-      Telegram.WebApp.MainButton.setText('Подтвердить');
-      Telegram.WebApp.MainButton.onClick(() => {
-        sendForm()
-      })
-
-      Telegram.WebApp.MainButton.show();
-
       function setThemeClass() {
         document.documentElement.className = Telegram.WebApp.colorScheme;
       }
@@ -245,22 +235,6 @@
     checkbox_animals_2.checked = false;
   });
 
-  const checkbox_photo_1 = document.getElementById("checkbox-6-photo-yes"); // Фото
-    const checkbox_photo_2 = document.getElementById("checkbox-7-photo-no");
-    const checkbox_photo_3 = document.getElementById("checkbox-8-photo-*");
-
-    checkbox_photo_1.addEventListener("click", () => {
-      checkbox_photo_2.checked = false;
-      checkbox_photo_3.checked = false;
-    });
-    checkbox_photo_2.addEventListener("click", () => {
-      checkbox_photo_1.checked = false;
-      checkbox_photo_3.checked = false;
-    });
-    checkbox_photo_3.addEventListener("click", () => {
-      checkbox_photo_1.checked = false;
-      checkbox_photo_2.checked = false;
-    });
 
   Telegram.WebApp.onEvent('themeChanged', function () {
     document.querySelector('#themeData').innerHTML = JSON.stringify(Telegram.WebApp.themeParams, null, 2);
