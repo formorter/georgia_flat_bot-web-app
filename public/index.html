@@ -41,14 +41,16 @@
     </div>
     <div id="sb-2" class="select-box">
         <span class="select_header">Выбор района</span>
-        <div class="in-city-select-content">
-            <input id="district-input" type="text" list="districts" class="select-field"/>
-            <datalist id="districts" class="select-field__datalist">
-                <option>Район №1</option>
-                <option>Район №2</option>
-                <option>Район №3</option>
-                <option>Район №4</option>
-            </datalist>
+        <div class="district-select-content">
+            <select id="districts">
+                <option value="0" hidden>Выберите район</option>
+                <option value="1">Район 1</option>
+                <option value="2">Район 2</option>
+                <option value="3">Район 3</option>
+                <option value="4">Район 4</option>
+                <option value="5">Район 5</option>
+                <option value="6">Район 6</option>
+            </select>
         </div>
     </div>
     <div class="wrapper">
@@ -141,6 +143,7 @@
 </section>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
 <script>
+
   // Input Validation
   const cost_1 = document.getElementById("cost-1");
   const cost_1_hiddenValue = document.getElementById("cost-1-hiddenValue");
