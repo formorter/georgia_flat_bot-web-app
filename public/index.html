@@ -54,32 +54,32 @@
         </div>
     </div>
     <div class="wrapper">
-        <input id="cost-1" class="input-with-mark" type="number" value=0 min=0 step="1" max=999999999/>
+        <input id="cost-1" class="input-with-mark" type="number" value=1 min=1 step="1" max=9999999/>
         <label for="cost-1" class="cost-label">Стоимость от</label>
         <div class="units">
             <span class="invisible" id="cost-1-hiddenValue">0</span>
-            <span class="units-value" id="cost-1-unitsValue"> руб.</span>
+            <span class="units-value" id="cost-1-unitsValue"> $</span>
         </div>
     </div>
     <div class="wrapper">
-        <input id="cost-2" class="input-with-mark" type="number" value=75000 min=0 step="1" max=999999999/>
-        <label for="cost-2" class="cost-label">Стоимость от</label>
+        <input id="cost-2" class="input-with-mark" type="number" value=1000 min=1 step="1" max=9999999/>
+        <label for="cost-2" class="cost-label">Стоимость до</label>
         <div class="units">
-            <span class="invisible" id="cost-2-hiddenValue">75000</span>
-            <span class="units-value" id="cost-2-unitsValue"> руб.</span>
+            <span class="invisible" id="cost-2-hiddenValue">1000</span>
+            <span class="units-value" id="cost-2-unitsValue"> $</span>
         </div>
     </div>
     <div class="wrapper">
-        <input id="area-1" class="input-with-mark" type="number" value=0 min=0 step="0.1" max=99999/>
+        <input id="area-1" class="input-with-mark" type="number" value=1 min=1 step="1" max=99999/>
         <label for="area-1" class="cost-label">Площадь от</label>
         <div class="units">
-            <span class="invisible" id="area-1-hiddenValue">0</span>
+            <span class="invisible" id="area-1-hiddenValue">1</span>
             <span class="units-value" id="area-1-unitsValue"> м²</span>
         </div>
     </div>
     <div class="wrapper">
-        <input id="area-2" class="input-with-mark" type="number" value=75 min=0 step="0.1" max=99999/>
-        <label for="area-2" class="cost-label">Площадь от</label>
+        <input id="area-2" class="input-with-mark" type="number" value=75 min=1 step="1" max=99999/>
+        <label for="area-2" class="cost-label">Площадь до</label>
         <div class="units">
             <span class="invisible" id="area-2-hiddenValue">75</span>
             <span class="units-value" id="area-2-unitsValue"> м²</span>
@@ -90,7 +90,7 @@
         <label for="rooms-1" class="cost-label">Комнат от</label>
         <div class="units">
             <span class="invisible" id="rooms-1-hiddenValue">1</span>
-            <span class="units-value" id="rooms-1-unitsValue"> комната</span>
+            <span class="units-value" id="rooms-1-unitsValue"></span>
         </div>
     </div>
     <div class="wrapper">
@@ -98,7 +98,7 @@
         <label for="rooms-2" class="cost-label">Комнат до</label>
         <div class="units">
             <span class="invisible" id="rooms-2-hiddenValue">5</span>
-            <span class="units-value" id="rooms-2-unitsValue"> комнат</span>
+            <span class="units-value" id="rooms-2-unitsValue"></span>
         </div>
     </div>
 
@@ -109,15 +109,6 @@
                 <input id="checkbox-3-animals-yes" type="checkbox" class="custom-checkbox" data-val=true value=true>
                 <label for="checkbox-3-animals-yes" class="checkbox-label">Да</label>
             </div>
-            <div class="city-select-content-item">
-                <input id="checkbox-4-animals-no" type="checkbox" class="custom-checkbox" data-val=true value=true>
-                <label for="checkbox-4-animals-no" class="checkbox-label">Нет</label>
-            </div>
-            <div class="city-select-content-item">
-                <input id="checkbox-5-animals-*" type="checkbox" class="custom-checkbox" data-val=true value=true
-                       checked>
-                <label for="checkbox-5-animals-*" class="checkbox-label">Не важно</label>
-            </div>
 
         </div>
 
@@ -126,17 +117,9 @@
         <span class="select_header">С фотографией</span>
         <div class="city-select-content">
             <div class="city-select-content-item">
-                <input id="checkbox-6-photo-yes" type="checkbox" class="custom-checkbox" data-val=true value=true
+                <input id="checkbox-4-photo-yes" type="checkbox" class="custom-checkbox" data-val=true value=true
                        checked>
-                <label for="checkbox-6-photo-yes" class="checkbox-label">Да</label>
-            </div>
-            <div class="city-select-content-item">
-                <input id="checkbox-7-photo-no" type="checkbox" class="custom-checkbox" data-val=true value=true>
-                <label for="checkbox-7-photo-no" class="checkbox-label">Нет</label>
-            </div>
-            <div class="city-select-content-item">
-                <input id="checkbox-8-photo-*" type="checkbox" class="custom-checkbox" data-val=true value=true>
-                <label for="checkbox-8-photo-*" class="checkbox-label">Не важно</label>
+                <label for="checkbox-4-photo-yes" class="checkbox-label">Да</label>
             </div>
         </div>
     </div>
@@ -222,14 +205,6 @@
       rooms_1.value = rooms_1.value.substring(1);
     }
 
-    // Склонение слова "комната" в зависимости от количества комнат
-    if (rooms_1_hiddenValue.innerHTML === "1") {
-      document.getElementById("rooms-1-unitsValue").innerHTML = " комната";
-    } else if (rooms_1_hiddenValue.innerHTML === "2" || rooms_1_hiddenValue.innerHTML === "3" || rooms_1_hiddenValue.innerHTML === "4") {
-      document.getElementById("rooms-1-unitsValue").innerHTML = " комнаты";
-    } else {
-      document.getElementById("rooms-1-unitsValue").innerHTML = " комнат";
-    }
   });
 
 
@@ -243,50 +218,7 @@
       rooms_2_hiddenValue.innerHTML = rooms_2.value.substring(1);
       rooms_2.value = rooms_2.value.substring(1);
     }
-
-    // Склонение слова "комната" в зависимости от количества комнат
-    if (rooms_2_hiddenValue.innerHTML === "1") {
-      document.getElementById("rooms-2-unitsValue").innerHTML = " комната";
-    } else if (rooms_2_hiddenValue.innerHTML === "2" || rooms_2_hiddenValue.innerHTML === "3" || rooms_2_hiddenValue.innerHTML === "4") {
-      document.getElementById("rooms-2-unitsValue").innerHTML = " комнаты";
-    } else {
-      document.getElementById("rooms-2-unitsValue").innerHTML = " комнат";
-    }
   });
-
-  const checkbox_animals_1 = document.getElementById("checkbox-3-animals-yes"); // Животные
-  const checkbox_animals_2 = document.getElementById("checkbox-4-animals-no");
-  const checkbox_animals_3 = document.getElementById("checkbox-5-animals-*");
-
-  checkbox_animals_1.addEventListener("click", () => {
-    checkbox_animals_2.checked = false;
-    checkbox_animals_3.checked = false;
-  });
-  checkbox_animals_2.addEventListener("click", () => {
-    checkbox_animals_1.checked = false;
-    checkbox_animals_3.checked = false;
-  });
-  checkbox_animals_3.addEventListener("click", () => {
-    checkbox_animals_1.checked = false;
-    checkbox_animals_2.checked = false;
-  });
-
-  const checkbox_photo_1 = document.getElementById("checkbox-6-photo-yes"); // Фото
-    const checkbox_photo_2 = document.getElementById("checkbox-7-photo-no");
-    const checkbox_photo_3 = document.getElementById("checkbox-8-photo-*");
-
-    checkbox_photo_1.addEventListener("click", () => {
-      checkbox_photo_2.checked = false;
-      checkbox_photo_3.checked = false;
-    });
-    checkbox_photo_2.addEventListener("click", () => {
-      checkbox_photo_1.checked = false;
-      checkbox_photo_3.checked = false;
-    });
-    checkbox_photo_3.addEventListener("click", () => {
-      checkbox_photo_1.checked = false;
-      checkbox_photo_2.checked = false;
-    });
 
 
 
@@ -324,9 +256,9 @@
 
     const district = document.getElementById("district-input").value;
 
-    const animals = document.getElementById("checkbox-5-animals-*").checked ? "*" : document.getElementById("checkbox-3-animals-yes").checked;
+    const animals = document.getElementById("checkbox-3-animals-yes").checked
 
-    const photo = document.getElementById("checkbox-8-photo-*").checked ? "*" : document.getElementById("checkbox-6-photo-yes").checked;
+    const photo = document.getElementById("checkbox-4-photo-yes").checked
 
     const data = {
 
