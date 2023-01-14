@@ -60,13 +60,13 @@ body {
     display: grid;
     padding: 20px;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    grid-template-rows: repeat(auto-fill, minmax(20%, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(14%, 1fr));
     grid-auto-rows: 20%;
     overflow: auto;
 
 }
 
-.city-select-box {
+.select-box {
     padding: 7px;
     max-height: 100px;
     z-index: 10;
@@ -74,11 +74,11 @@ body {
     flex-direction: column;
 }
 
-#csb-1 {
+#sb-1 {
     animation: form-fly-left 0.55s ease;
 }
 
-#csb-2 {
+#sb-2 {
     animation: form-fly-right 0.55s ease;
 }
 
