@@ -74,22 +74,6 @@ body {
     flex-direction: column;
 }
 
-#sb-1 {
-    animation: form-fly-left 0.55s ease;
-}
-
-#sb-2 {
-    animation: form-fly-right 0.55s ease;
-}
-
-#cost-field-1 {
-    animation: form-fly-left 0.55s ease;
-}
-
-#cost-field-2 {
-    animation: form-fly-right 0.55s ease;
-}
-
 
 .city-select-content{
     display: flex;
@@ -282,7 +266,7 @@ button:hover {
     line-height: 25px;
     font-weight: normal;
     padding: 3px 3px 3px 10px;
-    color: var(--tg-bg-color);
+    color: var(--tg-theme-bg-color);
 }
 
 .units {
