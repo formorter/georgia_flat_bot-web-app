@@ -218,6 +218,16 @@
     }
   });
 
+  Telegram.WebApp.ready();
+
+  Telegram.WebApp.MainButton.show();
+  Telegram.WebApp.MainButton.setText('Подтвердить');
+  Telegram.WebApp.MainButton.onClick(() => {
+    sendForm()
+  })
+
+  Telegram.WebApp.MainButton.show();
+
   Telegram.WebApp.onEvent('themeChanged', function () {
     document.querySelector('#themeData').innerHTML = JSON.stringify(Telegram.WebApp.themeParams, null, 2);
   });
