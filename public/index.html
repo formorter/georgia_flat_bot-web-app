@@ -218,24 +218,6 @@
     }
   });
 
-  const checkbox_animals_1 = document.getElementById("checkbox-3-animals-yes"); // Животные
-  const checkbox_animals_2 = document.getElementById("checkbox-4-animals-no");
-  const checkbox_animals_3 = document.getElementById("checkbox-5-animals-*");
-
-  checkbox_animals_1.addEventListener("click", () => {
-    checkbox_animals_2.checked = false;
-    checkbox_animals_3.checked = false;
-  });
-  checkbox_animals_2.addEventListener("click", () => {
-    checkbox_animals_1.checked = false;
-    checkbox_animals_3.checked = false;
-  });
-  checkbox_animals_3.addEventListener("click", () => {
-    checkbox_animals_1.checked = false;
-    checkbox_animals_2.checked = false;
-  });
-
-
   Telegram.WebApp.onEvent('themeChanged', function () {
     document.querySelector('#themeData').innerHTML = JSON.stringify(Telegram.WebApp.themeParams, null, 2);
   });
