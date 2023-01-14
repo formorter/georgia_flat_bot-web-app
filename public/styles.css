@@ -266,7 +266,6 @@ button:hover {
     line-height: 25px;
     font-weight: normal;
     padding: 3px 3px 3px 10px;
-    color: var(--tg-theme-bg-color);
 }
 
 .units {
