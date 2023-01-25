@@ -63,8 +63,17 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     grid-template-rows: repeat(auto-fill, minmax(17%, 1fr));
     grid-auto-rows: 20%;
-    overflow: scroll;
+    overflow: hidden;
 
+}
+
+/*Адаптивность сетки на телефонах*/
+@media (max-width: 666px) {
+    .form-content {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        grid-template-rows: repeat(auto-fill, minmax(17%, 1fr));
+        grid-auto-rows: 35%;
+    }
 }
 
 
