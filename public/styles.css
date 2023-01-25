@@ -340,7 +340,17 @@ input {
     position: relative;
 }
 
-/*FIX input sliding on iphone when input is focus*/
-input:focus {
-    -webkit-appearance: none;
+/*FIX form sliding on iphone when input is focus*/
+@media screen and (max-width: 600px) {
+    .form {
+        position: relative;
+        top: 0;
+        left: 0;
+        animation: none;
+    }
+
+    input {
+        z-index: 5;
+        position: relative;
+    }
 }
