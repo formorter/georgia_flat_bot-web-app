@@ -259,7 +259,6 @@ button:hover {
 .input-with-mark {
     border: 2px solid;
     border-radius: 5px;
-    background-color: #ffffff;
     width: 100%;
     font-family: serif;
     font-size: 18px;
@@ -325,4 +324,8 @@ select {
     height: 100%;
 }
 
+input {
+    z-index: 5;
+    position: relative;
+}
 
