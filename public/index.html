@@ -129,11 +129,19 @@
   // get all input elements
     const inputs = document.querySelectorAll('input');
 
-    // set focus listener on each input
+  const cursorFocus = function(elem) {
+    const x = window.scrollX, y = window.scrollY;
+    elem.focus();
+    window.scrollTo(x, y);
+  }
+
+  // set focus listener on each input
     inputs.forEach(input => {
       input.focus({
         preventScroll: true
       })
+      console.log('focus')
+      cursorFocus(input);
     });
 
   // Input Validation
