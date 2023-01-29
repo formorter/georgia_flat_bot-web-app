@@ -131,10 +131,9 @@
 
     // set focus listener on each input
     inputs.forEach(input => {
-      input.addEventListener('focus', (e) => {
-        e.preventDefault();
-        e.target.focus({preventScroll: true});
-      });
+      input.focus({
+        preventScroll: true
+      })
     });
 
   // Input Validation
