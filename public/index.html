@@ -128,6 +128,11 @@
 
   // get all input elements
     const inputs = document.querySelectorAll('input');
+    const _cost_1 = document.getElementById('cost-1');
+
+    _cost_1.focus({
+        preventScroll: true
+    })
 
   var cursorFocus = function(elem) {
     var x, y;
