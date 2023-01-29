@@ -58,12 +58,13 @@ body {
     position: absolute;
     height: 100%;
     width: 100%;
-    display: grid;
     padding: 20px;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    grid-template-rows: repeat(auto-fill, minmax(17%, 1fr));
-    grid-auto-rows: 20%;
-    overflow: hidden;
+/*    adaptive form with 2-el column direction*/
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: form-fly-down 0.55s ease;
 
 }
 
