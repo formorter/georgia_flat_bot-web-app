@@ -4,11 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <meta name="format-detection" content="telephone=no"/>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="MobileOptimized" content="176"/>
-    <meta name="HandheldFriendly" content="True"/>
-    <meta name="robots" content="noindex,nofollow"/>
+<!--    <meta name="format-detection" content="telephone=no"/>-->
+<!--    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>-->
+<!--    <meta name="MobileOptimized" content="176"/>-->
+<!--    <meta name="HandheldFriendly" content="True"/>-->
+<!--    <meta name="robots" content="noindex,nofollow"/>-->
     <title></title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://telegram.org/js/telegram-web-app.js?1"></script>
@@ -126,48 +126,8 @@
 </section>
 <script>
 
-  // get all input elements
-    const inputs = document.querySelectorAll('input');
     const _cost_1 = document.getElementById('cost-1');
 
-    _cost_1.focus({
-        preventScroll: true
-    })
-
-  var cursorFocus = function(elem) {
-    var x, y;
-    if (typeof(window.scrollX) !== 'undefined') {
-      x = window.scrollX;
-      y = window.scrollY;
-    } else if (document.documentElement && typeof(document.documentElement.scrollLeft) !== 'undefined') {
-      x = document.documentElement.scrollLeft;
-      y = document.documentElement.scrollTop;
-    } else {
-      x = document.body.scrollLeft;
-      y = document.body.scrollTop;
-    }
-
-    elem.focus();
-
-    if (typeof x !== 'undefined') {
-      // In some cases IE9 does not seem to catch instant scrollTo request.
-      setTimeout(function() { window.scrollTo(x, y); }, 100);
-    }
-  }
-
-  // set focus listener on each input
-    inputs.forEach(input => {
-      input.focus({
-        preventScroll: true
-      })
-      console.log('focus')
-      cursorFocus(input);
-
-      input.addEventListener('focus', () => {
-        console.log('focus2', input)
-        cursorFocus(input);
-      })
-    });
 
   // Input Validation
   const cost_1 = document.getElementById("cost-1");
