@@ -7,6 +7,9 @@
     background-position: center;
     background-size: contain;
     text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
 }
 
 html,
@@ -34,7 +37,7 @@ body {
 }
 
 .header_box {
-    position: relative;
+    position: absolute;
     display: flex;
     width: 100%;
     height: 100%;
@@ -67,7 +70,7 @@ body {
 
 }
 
-/*Адаптивность сетки на телефонах*/
+
 @media (max-width: 666px) {
     .form-content {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
@@ -75,7 +78,6 @@ body {
         grid-auto-rows: 35%;
     }
 }
-
 
 .select-box {
     padding: 7px;
@@ -85,16 +87,6 @@ body {
     flex-direction: column;
 }
 
-
-.city-select-content{
-    display: flex;
-    flex-direction: column;
-}
-
-.city-select-content-item{
-    display: flex;
-    flex-direction: column;
-}
 
 .custom-checkbox {
     user-select: none;
