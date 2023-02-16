@@ -20,9 +20,8 @@ body {
     margin: 0;
     padding: 0;
     font-family: Roboto, serif;
-    display: flex;
-    flex-direction: column;
     overflow: scroll;
+    background-color: var(--tg-theme-bg-color);
 
 }
 
@@ -32,9 +31,6 @@ label {
     color: var(--tg-theme-text-color);
 }
 
-body {
-    background-color: var(--tg-theme-bg-color);
-}
 
 .header_box {
     position: absolute;
@@ -64,7 +60,7 @@ body {
     display: grid;
     padding: 20px;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    grid-template-rows: repeat(auto-fill, minmax(17%, 1fr));
+    grid-template-rows: repeat(auto-fill, minmax(150px, 1fr));
     grid-auto-rows: 20%;
     overflow: scroll;
 
@@ -74,7 +70,7 @@ body {
 @media (max-width: 666px) {
     .form-content {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        grid-template-rows: repeat(auto-fill, minmax(17%, 1fr));
+        grid-template-rows: repeat(auto-fill, minmax(135px, 1fr));
         grid-auto-rows: 35%;
     }
 }
