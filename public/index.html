@@ -26,13 +26,40 @@
           window.scrollTo(0, 0);
         });
       });
+      // сохраняем текущий размер страницы
+      var previousHeight = window.innerHeight;
+
+      // добавляем обработчик события resize
+      window.addEventListener('resize', function() {
+        // если размер страницы изменился
+        if (window.innerHeight !== previousHeight) {
+          // сохраняем новый размер страницы
+          previousHeight = window.innerHeight;
+          // прокручиваем страницу на 1 пиксель вниз, а затем обратно вверх
+          window.scrollBy(0, 1);
+          window.scrollBy(0, -1);
+        }
+      });
+
+      // добавляем обработчик события scroll
+      window.addEventListener('scroll', function() {
+        // если размер страницы изменился
+        if (window.innerHeight !== previousHeight) {
+          // сохраняем новый размер страницы
+          previousHeight = window.innerHeight;
+          // прокручиваем страницу на 1 пиксель вниз, а затем обратно вверх
+          window.scrollBy(0, 1);
+          window.scrollBy(0, -1);
+        }
+      });
+
     </script>
 </head>
 
 <body>
 <div class="form-content">
     <div id="sb-1" class="select-box">
-        <span class="select_header">Тест 14</span>
+        <span class="select_header">Тест 1488</span>
         <div class="city-select-content">
             <div class="city-select-content-item">
                 <input id="checkbox-1-city-tbilisi" type="checkbox" class="custom-checkbox" data-val=true value=true>
