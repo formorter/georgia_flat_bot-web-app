@@ -16,15 +16,14 @@ html,
 body {
 
     width: 100%;
-    min-height: 100vh;
+    min-height: 105vh;
     margin: 0;
     padding: 0;
     font-family: Roboto, serif;
-    overflow: hidden;
+    overflow: scroll;
     background-color: var(--tg-theme-bg-color);
-    scroll-padding-top: 5%;
+    scroll-padding: 100%;
     scroll-behavior: smooth;
-
 
 }
 
@@ -65,8 +64,8 @@ label {
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 5%;
     grid-template-rows: repeat(auto-fill, minmax(150px, 1fr));
-    overflow: hidden;
-    overflow-y: auto;
+    overflow: scroll;
+    animation: form-fly-up 0.45s ease;
 
 }
 
