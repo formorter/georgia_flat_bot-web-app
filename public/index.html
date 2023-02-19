@@ -19,13 +19,20 @@
 
       Telegram.WebApp.onEvent('themeChanged', setThemeClass);
       setThemeClass();
+      const inputs = document.querySelectorAll('input');
+
+      inputs.forEach(input => {
+        input.addEventListener('focus', () => {
+          window.scrollTo(0, 0);
+        });
+      });
     </script>
 </head>
 
 <body>
 <div class="form-content">
     <div id="sb-1" class="select-box">
-        <span class="select_header">Тест 11</span>
+        <span class="select_header">Тест 14</span>
         <div class="city-select-content">
             <div class="city-select-content-item">
                 <input id="checkbox-1-city-tbilisi" type="checkbox" class="custom-checkbox" data-val=true value=true>

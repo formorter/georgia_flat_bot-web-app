@@ -25,6 +25,7 @@ body {
     scroll-padding-top: 5%;
     scroll-behavior: smooth;
 
+
 }
 
 label {
@@ -64,6 +65,7 @@ label {
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 5%;
     grid-template-rows: repeat(auto-fill, minmax(150px, 1fr));
+    overflow: hidden;
     animation: form-fly-up 0.45s ease;
 
 }
