@@ -137,15 +137,19 @@
   const cost_1 = document.getElementById("cost-1");
   const cost_1_hiddenValue = document.getElementById("cost-1-hiddenValue");
   cost_1.addEventListener("input", () => { // Стоимость от
+    if (cost_1_hiddenValue.innerHTML === '0' && cost_1.value !== '0') {
+      cost_1.value = cost_1.value.substring(1);
+      cost_1_hiddenValue.innerHTML = cost_1.value;
+    }
     if (cost_1.value > 999999999) {
       cost_1.value = 999999999;
-    } else if (cost_1.value.length === 0) {
+      cost_1_hiddenValue.innerHTML = cost_1.value;
+    }
+    else if (cost_1.value === '') {
       cost_1.value = 0;
-      cost_1_hiddenValue.innerHTML = "0";
-    } else if (cost_1_hiddenValue.innerHTML === "0") {
-      cost_1_hiddenValue.innerHTML = cost_1.value.substring(1);
-      cost_1.value = cost_1.value.substring(1);
-    } else {
+      cost_1_hiddenValue.innerHTML = cost_1.value;
+    }
+    else {
       cost_1_hiddenValue.innerHTML = cost_1.value;
     }
   });
@@ -154,15 +158,19 @@
   const cost_2 = document.getElementById("cost-2"); // Стоимость до
   const cost_2_hiddenValue = document.getElementById("cost-2-hiddenValue");
   cost_2.addEventListener("input", () => { // Стоимость до
+    if (cost_2_hiddenValue.innerHTML === '0' && cost_2.value !== '0') {
+      cost_2.value = cost_2.value.substring(1);
+      cost_2_hiddenValue.innerHTML = cost_2.value;
+    }
     if (cost_2.value > 999999999) {
       cost_2.value = 999999999;
-    } else if (cost_2.value.length === 0) {
+      cost_2_hiddenValue.innerHTML = cost_2.value;
+    }
+    else if (cost_1.value === '') {
       cost_2.value = 0;
-      cost_2_hiddenValue.innerHTML = "0";
-    } else if (cost_2_hiddenValue.innerHTML === "0") {
-      cost_2_hiddenValue.innerHTML = cost_2.value.substring(1);
-      cost_2.value = cost_2.value.substring(1);
-    } else {
+      cost_2_hiddenValue.innerHTML = cost_2.value;
+    }
+    else {
       cost_2_hiddenValue.innerHTML = cost_2.value;
     }
   });
@@ -179,7 +187,7 @@
       area_1_hiddenValue.innerHTML = area_1.value.substring(1);
       area_1.value = area_1.value.substring(1);
     }
-    area_2_hiddenValue.innerHTML = area_2.value;
+    area_1_hiddenValue.innerHTML = area_1.value;
   });
 
 
@@ -223,7 +231,6 @@
       rooms_2.value = rooms_2.value.substring(1);
     }
   });
-
 
 
   // Telegram Web App
