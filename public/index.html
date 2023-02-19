@@ -280,7 +280,7 @@
 
     }
 
-    if ( price_from < price_to && area_from < area_to && rooms_from <= rooms_to && district ) {
+    if ( price_from < price_to && area_from < area_to && rooms_from <= rooms_to && district && data.city ) {
       const dataString = JSON.stringify(data);
       Telegram.WebApp.sendData(dataString);
       webviewClose();
