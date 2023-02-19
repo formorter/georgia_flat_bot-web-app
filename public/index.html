@@ -31,8 +31,9 @@
 </head>
 
 <body>
+<div class="form-content">
     <div id="sb-1" class="select-box">
-        <span class="select_header">Тест 537777</span>
+        <span class="select_header">Выбор города</span>
         <div class="city-select-content">
             <div class="city-select-content-item">
                 <input id="checkbox-1-city-tbilisi" type="checkbox" class="custom-checkbox" data-val=true value=true>
@@ -128,6 +129,7 @@
             </div>
         </div>
     </div>
+</div>
 <script>
 
 
@@ -176,9 +178,8 @@
     } else if (area_1_hiddenValue.innerHTML === "0") {
       area_1_hiddenValue.innerHTML = area_1.value.substring(1);
       area_1.value = area_1.value.substring(1);
-    } else {
-      area_1_hiddenValue.innerHTML = area_1.value;
     }
+    area_2_hiddenValue.innerHTML = area_2.value;
   });
 
 
@@ -193,9 +194,8 @@
     } else if (area_2_hiddenValue.innerHTML === "0") {
       area_2_hiddenValue.innerHTML = area_2.value.substring(1);
       area_2.value = area_2.value.substring(1);
-    } else {
-      area_2_hiddenValue.innerHTML = area_2.value;
     }
+    area_2_hiddenValue.innerHTML = area_2.value;
   });
 
   const rooms_1 = document.getElementById("rooms-1"); // Комнат от
@@ -279,12 +279,27 @@
 
     }
 
-    if (price_from > 0 && price_to > price_from && area_from > 0 && area_to > area_from && district.length > 0) {
+    if (price_from >= 0 && (price_to > price_from) && (area_from > 0) && (area_to > area_from) && (district.length > 0)) {
       const dataString = JSON.stringify(data);
       Telegram.WebApp.sendData(dataString);
       webviewClose();
     } else {
-      alert("Неверно введены данные");
+      let err_msg = '';
+      let err_count = 1;
+
+      if (price_to > price_from) {
+        err_msg += `${err_count}) Стоимость от должна быть меньше стоимости до\n`;
+      }
+
+      if ( area_from > area_to) {
+        err_msg += `${err_count}) Площадь от должна быть меньше площади до\n`;
+      }
+
+      if (district.length === 0) {
+        err_msg += `${err_count}) район поиска должен быть выбран!\n`;
+      }
+
+      alert(err_msg);
     }
   }
 </script>
