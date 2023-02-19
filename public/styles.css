@@ -23,14 +23,8 @@ body {
     background-color: var(--tg-theme-bg-color);
     scroll-padding-top: 5%;
     scroll-behavior: smooth;
-    overflow: hidden;
+    overflow: scroll;
 
-}
-
-label {
-    font-weight: 500;
-    font-size: 14px;
-    color: var(--tg-theme-text-color);
 }
 
 
@@ -63,8 +57,8 @@ label {
     padding: 10px;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 5%;
-    grid-template-rows: repeat(auto-fill, minmax(150px, 1fr));
-    overflow: hidden;
+    grid-template-rows: repeat(auto-fill, minmax(2fr, 1fr));
+    overflow: scroll;
     animation: form-fly-up 0.45s ease;
     margin-bottom: 5%;
 
@@ -143,9 +137,11 @@ label {
 }
 
 .select_header {
+    position: relative;
     font-size: 17px;
     font-weight: 500;
     color: var(--tg-theme-text-color);
+    word-break: break-all;
 }
 
 .translucent {
@@ -171,8 +167,8 @@ label {
 }
 
 .cost-label {
-    padding: 5px 5px 5px 10px;
     position: relative;
+    word-break: break-all;
     font-weight: 500;
     font-size: 18px;
 }
@@ -248,7 +244,8 @@ button:hover {
 }
 .wrapper {
     position: relative;
-    width: 90%;
+    display: flex;
+    width: 100%;
 }
 
 .input-with-mark {
@@ -274,6 +271,7 @@ input[type=number] {
 }
 
 .units {
+    position: absolute;
     pointer-events: none;
     overflow: hidden;
 
@@ -283,10 +281,17 @@ input[type=number] {
     line-height: 25px;
     font-weight: normal;
 
-    /* includes border width */
-    padding: 28px 12px;
+    margin-left: 90%;
+    margin-top: 28px;
     opacity: 0.9;
-    float: right;
+    float: left;
+}
+
+@media screen and (max-width: 550px) {
+    .units {
+        margin-left: 85%;
+    }
+
 }
 
 .invisible {
