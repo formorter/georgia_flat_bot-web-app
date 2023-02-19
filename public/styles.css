@@ -26,10 +26,8 @@ body {
     padding: 20px;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 5%;
-    grid-template-rows: repeat(auto-fill, minmax(150px, 1fr));
-    overflow: scroll;
+    overflow: hidden;
     overflow-y: auto;
-    overflow-x: hidden;
     animation: form-fly-up 0.45s ease;
 
 }
