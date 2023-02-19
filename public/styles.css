@@ -22,7 +22,8 @@ body {
     font-family: Roboto, serif;
     overflow: scroll;
     background-color: var(--tg-theme-bg-color);
-    scroll-padding-top: 50px;
+    scroll-padding-top: 5%;
+    scroll-behavior: smooth;
 
 }
 
