@@ -256,14 +256,14 @@
     const Tbilisi = document.getElementById("checkbox-1-city-tbilisi").checked.toString();
     const Batumi = document.getElementById("checkbox-2-city-batumi").checked.toString();
 
-    const price_from = document.getElementById("cost-1").value;
-    const price_to = document.getElementById("cost-2").value;
+    const price_from = +document.getElementById("cost-1").value;
+    const price_to = +document.getElementById("cost-2").value;
 
-    const area_from = document.getElementById("area-1").value;
-    const area_to = document.getElementById("area-2").value;
+    const area_from = +document.getElementById("area-1").value;
+    const area_to = +document.getElementById("area-2").value;
 
-    const rooms_from = document.getElementById("rooms-1").value;
-    const rooms_to = document.getElementById("rooms-2").value;
+    const rooms_from = +document.getElementById("rooms-1").value;
+    const rooms_to = +document.getElementById("rooms-2").value;
 
     const district = document.getElementById("districts").value;
 
@@ -286,7 +286,7 @@
 
     }
 
-    if (price_from >= 0 && (price_to > price_from) && (area_from > 0) && (area_to > area_from) && (district.length > 0)) {
+    if ((price_from >= 0) && (price_to > price_from) && (area_from > 0) && (area_to > area_from) && (district.length > 0)) {
       const dataString = JSON.stringify(data);
       Telegram.WebApp.sendData(dataString);
       webviewClose();
