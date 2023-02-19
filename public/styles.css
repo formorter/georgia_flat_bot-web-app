@@ -20,7 +20,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: Roboto, serif;
-    overflow: scroll;
+    overflow: hidden;
     background-color: var(--tg-theme-bg-color);
     scroll-padding-top: 5%;
     scroll-behavior: smooth;
@@ -64,7 +64,6 @@ label {
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 5%;
     grid-template-rows: repeat(auto-fill, minmax(150px, 1fr));
-    overflow: scroll;
     animation: form-fly-up 0.45s ease;
 
 }
