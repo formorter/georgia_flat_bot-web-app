@@ -57,7 +57,7 @@ label {
 .form-content {
 
     z-index: 5;
-    position: absolute;
+    position: fixed;
     height: 100%;
     width: 100%;
     display: grid;
@@ -70,13 +70,6 @@ label {
 
 }
 
-
-@media (max-width: 666px) {
-    .form-content {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-        grid-template-rows: repeat(auto-fill, minmax(135px, 1fr));
-    }
-}
 
 .select-box {
     padding: 7px;
