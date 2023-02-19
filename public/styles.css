@@ -15,15 +15,22 @@
 html,
 body {
 
+    position: absolute;
     width: 100%;
-    min-height: 105vh;
-    margin: 0;
-    padding: 0;
+    height: 100%;
     font-family: Roboto, serif;
-    overflow: scroll;
     background-color: var(--tg-theme-bg-color);
-    scroll-padding: 100%;
+    scroll-padding-top: 5%;
     scroll-behavior: smooth;
+    display: grid;
+    padding: 20px;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 5%;
+    grid-template-rows: repeat(auto-fill, minmax(150px, 1fr));
+    overflow: scroll;
+    overflow-y: auto;
+    overflow-x: hidden;
+    animation: form-fly-up 0.45s ease;
 
 }
 
