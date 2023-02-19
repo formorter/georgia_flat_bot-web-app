@@ -280,7 +280,7 @@
 
     }
 
-    if ((price_from >= 0) && (price_to > price_from) && (area_from > 0) && (area_to > area_from) && (district.length > 0)) {
+    if ( price_from < price_to && area_from < area_to && rooms_from <= rooms_to && district ) {
       const dataString = JSON.stringify(data);
       Telegram.WebApp.sendData(dataString);
       webviewClose();
@@ -288,7 +288,7 @@
       let err_msg = '';
       let err_count = 1;
 
-      if (price_to > price_from) {
+      if (price_to < price_from) {
         err_msg += `${err_count}) Стоимость от должна быть меньше стоимости до\n`;
       }
 
