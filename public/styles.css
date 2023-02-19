@@ -57,7 +57,7 @@ label {
 .form-content {
 
     z-index: 5;
-    position: fixed;
+    position: absolute;
     height: 100%;
     width: 100%;
     display: grid;
@@ -66,10 +66,20 @@ label {
     grid-column-gap: 5%;
     grid-template-rows: repeat(auto-fill, minmax(150px, 1fr));
     overflow: hidden;
-    animation: form-fly-up 0.45s ease;
 
 }
 
+@media screen and (max-width: 767px) {
+    .form input:focus {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 9999;
+        background-color: #fff;
+        outline: none;
+    }
+}
 
 .select-box {
     padding: 7px;
