@@ -134,103 +134,103 @@
 
 
   // Input Validation
-  const cost_1 = document.getElementById("cost-1");
-  const cost_1_hiddenValue = document.getElementById("cost-1-hiddenValue");
-  cost_1.addEventListener("input", () => { // Стоимость от
-    if (cost_1_hiddenValue.innerHTML === '0' && cost_1.value !== '0') {
-      cost_1.value = cost_1.value.substring(1);
-      cost_1_hiddenValue.innerHTML = cost_1.value;
-    }
-    if (cost_1.value > 999999999) {
-      cost_1.value = 999999999;
-      cost_1_hiddenValue.innerHTML = cost_1.value;
-    }
-    else if (cost_1.value === '') {
-      cost_1.value = 0;
-      cost_1_hiddenValue.innerHTML = cost_1.value;
-    }
-    else {
-      cost_1_hiddenValue.innerHTML = cost_1.value;
-    }
-  });
-
-
-  const cost_2 = document.getElementById("cost-2"); // Стоимость до
-  const cost_2_hiddenValue = document.getElementById("cost-2-hiddenValue");
-  cost_2.addEventListener("input", () => { // Стоимость до
-    if (cost_2_hiddenValue.innerHTML === '0' && cost_2.value !== '0') {
-      cost_2.value = cost_2.value.substring(1);
-      cost_2_hiddenValue.innerHTML = cost_2.value;
-    }
-    if (cost_2.value > 999999999) {
-      cost_2.value = 999999999;
-      cost_2_hiddenValue.innerHTML = cost_2.value;
-    }
-    else if (cost_1.value === '') {
-      cost_2.value = 0;
-      cost_2_hiddenValue.innerHTML = cost_2.value;
-    }
-    else {
-      cost_2_hiddenValue.innerHTML = cost_2.value;
-    }
-  });
-
-  const area_1 = document.getElementById("area-1"); // Площадь от
-  const area_1_hiddenValue = document.getElementById("area-1-hiddenValue");
-  area_1.addEventListener("input", () => {
-    if (area_1.value > 99999) {
-      area_1.value = 99999;
-    } else if (area_1.value.length === 0) {
-      area_1.value = 0;
-      area_1_hiddenValue.innerHTML = "0";
-    } else if (area_1_hiddenValue.innerHTML === "0") {
-      area_1_hiddenValue.innerHTML = area_1.value.substring(1);
-      area_1.value = area_1.value.substring(1);
-    }
-    area_1_hiddenValue.innerHTML = area_1.value;
-  });
-
-
-  const area_2 = document.getElementById("area-2"); // Площадь до
-  const area_2_hiddenValue = document.getElementById("area-2-hiddenValue");
-  area_2.addEventListener("input", () => {
-    if (area_2.value > 99999) {
-      area_2.value = 99999;
-    } else if (area_2.value.length === 0) {
-      area_2.value = 0;
-      area_2_hiddenValue.innerHTML = "0";
-    } else if (area_2_hiddenValue.innerHTML === "0") {
-      area_2_hiddenValue.innerHTML = area_2.value.substring(1);
-      area_2.value = area_2.value.substring(1);
-    }
-    area_2_hiddenValue.innerHTML = area_2.value;
-  });
-
-  const rooms_1 = document.getElementById("rooms-1"); // Комнат от
-  const rooms_1_hiddenValue = document.getElementById("rooms-1-hiddenValue");
-  rooms_1.addEventListener("input", () => {
-    if (rooms_1.value.length === 0) {
-      rooms_1.value = 1;
-      rooms_1_hiddenValue.innerHTML = "1";
-    } else {
-      rooms_1_hiddenValue.innerHTML = rooms_1.value.substring(1);
-      rooms_1.value = rooms_1.value.substring(1);
-    }
-
-  });
-
-
-  const rooms_2 = document.getElementById("rooms-2"); // Комнат до
-  const rooms_2_hiddenValue = document.getElementById("rooms-2-hiddenValue");
-  rooms_2.addEventListener("input", () => {
-    if (rooms_2.value.length === 0) {
-      rooms_2.value = 1;
-      rooms_2_hiddenValue.innerHTML = "1";
-    } else {
-      rooms_2_hiddenValue.innerHTML = rooms_2.value.substring(1);
-      rooms_2.value = rooms_2.value.substring(1);
-    }
-  });
+  // const cost_1 = document.getElementById("cost-1");
+  // const cost_1_hiddenValue = document.getElementById("cost-1-hiddenValue");
+  // cost_1.addEventListener("input", () => { // Стоимость от
+  //   if (cost_1_hiddenValue.innerHTML === '0' && cost_1.value !== '0') {
+  //     cost_1.value = cost_1.value.substring(1);
+  //     cost_1_hiddenValue.innerHTML = cost_1.value;
+  //   }
+  //   if (cost_1.value > 999999999) {
+  //     cost_1.value = 999999999;
+  //     cost_1_hiddenValue.innerHTML = cost_1.value;
+  //   }
+  //   else if (cost_1.value === '') {
+  //     cost_1.value = 0;
+  //     cost_1_hiddenValue.innerHTML = cost_1.value;
+  //   }
+  //   else {
+  //     cost_1_hiddenValue.innerHTML = cost_1.value;
+  //   }
+  // });
+  //
+  //
+  // const cost_2 = document.getElementById("cost-2"); // Стоимость до
+  // const cost_2_hiddenValue = document.getElementById("cost-2-hiddenValue");
+  // cost_2.addEventListener("input", () => { // Стоимость до
+  //   if (cost_2_hiddenValue.innerHTML === '0' && cost_2.value !== '0') {
+  //     cost_2.value = cost_2.value.substring(1);
+  //     cost_2_hiddenValue.innerHTML = cost_2.value;
+  //   }
+  //   if (cost_2.value > 999999999) {
+  //     cost_2.value = 999999999;
+  //     cost_2_hiddenValue.innerHTML = cost_2.value;
+  //   }
+  //   else if (cost_1.value === '') {
+  //     cost_2.value = 0;
+  //     cost_2_hiddenValue.innerHTML = cost_2.value;
+  //   }
+  //   else {
+  //     cost_2_hiddenValue.innerHTML = cost_2.value;
+  //   }
+  // });
+  //
+  // const area_1 = document.getElementById("area-1"); // Площадь от
+  // const area_1_hiddenValue = document.getElementById("area-1-hiddenValue");
+  // area_1.addEventListener("input", () => {
+  //   if (area_1.value > 99999) {
+  //     area_1.value = 99999;
+  //   } else if (area_1.value.length === 0) {
+  //     area_1.value = 0;
+  //     area_1_hiddenValue.innerHTML = "0";
+  //   } else if (area_1_hiddenValue.innerHTML === "0") {
+  //     area_1_hiddenValue.innerHTML = area_1.value.substring(1);
+  //     area_1.value = area_1.value.substring(1);
+  //   }
+  //   area_1_hiddenValue.innerHTML = area_1.value;
+  // });
+  //
+  //
+  // const area_2 = document.getElementById("area-2"); // Площадь до
+  // const area_2_hiddenValue = document.getElementById("area-2-hiddenValue");
+  // area_2.addEventListener("input", () => {
+  //   if (area_2.value > 99999) {
+  //     area_2.value = 99999;
+  //   } else if (area_2.value.length === 0) {
+  //     area_2.value = 0;
+  //     area_2_hiddenValue.innerHTML = "0";
+  //   } else if (area_2_hiddenValue.innerHTML === "0") {
+  //     area_2_hiddenValue.innerHTML = area_2.value.substring(1);
+  //     area_2.value = area_2.value.substring(1);
+  //   }
+  //   area_2_hiddenValue.innerHTML = area_2.value;
+  // });
+  //
+  // const rooms_1 = document.getElementById("rooms-1"); // Комнат от
+  // const rooms_1_hiddenValue = document.getElementById("rooms-1-hiddenValue");
+  // rooms_1.addEventListener("input", () => {
+  //   if (rooms_1.value.length === 0) {
+  //     rooms_1.value = 1;
+  //     rooms_1_hiddenValue.innerHTML = "1";
+  //   } else {
+  //     rooms_1_hiddenValue.innerHTML = rooms_1.value.substring(1);
+  //     rooms_1.value = rooms_1.value.substring(1);
+  //   }
+  //
+  // });
+  //
+  //
+  // const rooms_2 = document.getElementById("rooms-2"); // Комнат до
+  // const rooms_2_hiddenValue = document.getElementById("rooms-2-hiddenValue");
+  // rooms_2.addEventListener("input", () => {
+  //   if (rooms_2.value.length === 0) {
+  //     rooms_2.value = 1;
+  //     rooms_2_hiddenValue.innerHTML = "1";
+  //   } else {
+  //     rooms_2_hiddenValue.innerHTML = rooms_2.value.substring(1);
+  //     rooms_2.value = rooms_2.value.substring(1);
+  //   }
+  // });
 
 
   // Telegram Web App
