@@ -58,13 +58,12 @@ label {
     z-index: 9999;
     position: absolute;
     height: var(--tg-viewport-height);
-    min-height: 600px;
+    min-height: 650px;
     width: 100%;
     display: grid;
     padding: 10px;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 5%;
-    grid-template-rows: repeat(auto-fill, minmax(2fr, 1fr));
     overflow: scroll;
     animation: form-fly-up 0.45s ease;
     margin-bottom: 5%;
