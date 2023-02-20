@@ -3,15 +3,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport"
-          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes"/>
-    <meta name="format-detection" content="telephone=no"/>
+          content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes,height=device-height"/>
+    <meta name="format-detection" content="telephone=yes"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="MobileOptimized" content="176"/>
     <meta name="HandheldFriendly" content="True"/>
-    <meta name="robots" content="noindex,nofollow"/>
-    <title></title>
+    <title>GeorgiaFlatBotWebApp</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://telegram.org/js/telegram-web-app.js?1"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
       function setThemeClass() {
         document.documentElement.className = Telegram.WebApp.colorScheme;
@@ -42,17 +42,51 @@
     </div>
     <div id="sb-2" class="select-box">
         <span class="select_header">Выбор района</span>
-        <div class="district-select-content">
-            <select multiple id="districts">
-                <option value="0" hidden>Выберите район</option>
-                <option value="1">Saburtalo</option>
-                <option value="2">Район 2</option>
-                <option value="3">Район 3</option>
-                <option value="4">Район 4</option>
-                <option value="5">Район 5</option>
-                <option value="6">Район 6</option>
-            </select>
+        <div class="form-group">
+            <div class="multiselect-container">
+                <button type="button" class="multiselect-toggle">Select items</button>
+                <ul class="multiselect-menu">
+                    <li><a href="#">Item 1</a></li>
+                    <li><a href="#">Item 2</a></li>
+                    <li><a href="#">Item 3</a></li>
+                    <li><a href="#">Item 4</a></li>
+                </ul>
+            </div>
         </div>
+
+        <script>
+          $(function() {
+            // Show/hide the dropdown menu when the toggle button is clicked
+            $('.multiselect-toggle').click(function() {
+              $(this).parent().toggleClass('open');
+              return false;
+            });
+
+            // Update the toggle button text when an item is clicked
+            $('.multiselect-menu li a').click(function() {
+              $(this).parent().toggleClass('selected');
+              updateToggleButton();
+              return false;
+            });
+
+            // Update the toggle button text based on the selected items
+            function updateToggleButton() {
+              const selectedItems = [];
+              $('.multiselect-menu li.selected a').each(function() {
+                selectedItems.push($(this).text());
+              });
+              if (selectedItems.length === 0) {
+                $('.multiselect-toggle').text('Select items');
+              } else if (selectedItems.length < 4) {
+                $('.multiselect-toggle').text(selectedItems.join(', '));
+              } else {
+                $('.multiselect-toggle').text(selectedItems.length + ' items selected');
+              }
+            }
+          });
+
+        </script>
+
     </div>
     <div class="wrapper">
         <input id="cost-1" class="input-with-mark" type="number" value=1 min=1 step="1" max=9999999/>
@@ -98,7 +132,7 @@
     </div>
 
     <div id="sb-3" class="city-select-box">
-        <span class="select_header">Собственники</span>
+        <span class="select_header">Только собственники</span>
         <div class="city-select-content">
             <div class="city-select-content-item">
                 <input id="checkbox-3-animals-yes" type="checkbox" class="custom-checkbox" data-val=true value=true>
@@ -109,7 +143,7 @@
 
     </div>
     <div id="sb-4" class="city-select-box">
-        <span class="select_header">С фотографией</span>
+        <span class="select_header">Только с фотографией</span>
         <div class="city-select-content">
             <div class="city-select-content-item">
                 <input id="checkbox-4-photo-yes" type="checkbox" class="custom-checkbox" data-val=true value=true
@@ -121,110 +155,8 @@
 </div>
 <script>
 
-
-  // Input Validation
-  // const cost_1 = document.getElementById("cost-1");
-  // const cost_1_hiddenValue = document.getElementById("cost-1-hiddenValue");
-  // cost_1.addEventListener("input", () => { // Стоимость от
-  //   if (cost_1_hiddenValue.innerHTML === '0' && cost_1.value !== '0') {
-  //     cost_1.value = cost_1.value.substring(1);
-  //     cost_1_hiddenValue.innerHTML = cost_1.value;
-  //   }
-  //   if (cost_1.value > 999999999) {
-  //     cost_1.value = 999999999;
-  //     cost_1_hiddenValue.innerHTML = cost_1.value;
-  //   }
-  //   else if (cost_1.value === '') {
-  //     cost_1.value = 0;
-  //     cost_1_hiddenValue.innerHTML = cost_1.value;
-  //   }
-  //   else {
-  //     cost_1_hiddenValue.innerHTML = cost_1.value;
-  //   }
-  // });
-  //
-  //
-  // const cost_2 = document.getElementById("cost-2"); // Стоимость до
-  // const cost_2_hiddenValue = document.getElementById("cost-2-hiddenValue");
-  // cost_2.addEventListener("input", () => { // Стоимость до
-  //   if (cost_2_hiddenValue.innerHTML === '0' && cost_2.value !== '0') {
-  //     cost_2.value = cost_2.value.substring(1);
-  //     cost_2_hiddenValue.innerHTML = cost_2.value;
-  //   }
-  //   if (cost_2.value > 999999999) {
-  //     cost_2.value = 999999999;
-  //     cost_2_hiddenValue.innerHTML = cost_2.value;
-  //   }
-  //   else if (cost_1.value === '') {
-  //     cost_2.value = 0;
-  //     cost_2_hiddenValue.innerHTML = cost_2.value;
-  //   }
-  //   else {
-  //     cost_2_hiddenValue.innerHTML = cost_2.value;
-  //   }
-  // });
-  //
-  // const area_1 = document.getElementById("area-1"); // Площадь от
-  // const area_1_hiddenValue = document.getElementById("area-1-hiddenValue");
-  // area_1.addEventListener("input", () => {
-  //   if (area_1.value > 99999) {
-  //     area_1.value = 99999;
-  //   } else if (area_1.value.length === 0) {
-  //     area_1.value = 0;
-  //     area_1_hiddenValue.innerHTML = "0";
-  //   } else if (area_1_hiddenValue.innerHTML === "0") {
-  //     area_1_hiddenValue.innerHTML = area_1.value.substring(1);
-  //     area_1.value = area_1.value.substring(1);
-  //   }
-  //   area_1_hiddenValue.innerHTML = area_1.value;
-  // });
-  //
-  //
-  // const area_2 = document.getElementById("area-2"); // Площадь до
-  // const area_2_hiddenValue = document.getElementById("area-2-hiddenValue");
-  // area_2.addEventListener("input", () => {
-  //   if (area_2.value > 99999) {
-  //     area_2.value = 99999;
-  //   } else if (area_2.value.length === 0) {
-  //     area_2.value = 0;
-  //     area_2_hiddenValue.innerHTML = "0";
-  //   } else if (area_2_hiddenValue.innerHTML === "0") {
-  //     area_2_hiddenValue.innerHTML = area_2.value.substring(1);
-  //     area_2.value = area_2.value.substring(1);
-  //   }
-  //   area_2_hiddenValue.innerHTML = area_2.value;
-  // });
-  //
-  // const rooms_1 = document.getElementById("rooms-1"); // Комнат от
-  // const rooms_1_hiddenValue = document.getElementById("rooms-1-hiddenValue");
-  // rooms_1.addEventListener("input", () => {
-  //   if (rooms_1.value.length === 0) {
-  //     rooms_1.value = 1;
-  //     rooms_1_hiddenValue.innerHTML = "1";
-  //   } else {
-  //     rooms_1_hiddenValue.innerHTML = rooms_1.value.substring(1);
-  //     rooms_1.value = rooms_1.value.substring(1);
-  //   }
-  //
-  // });
-  //
-  //
-  // const rooms_2 = document.getElementById("rooms-2"); // Комнат до
-  // const rooms_2_hiddenValue = document.getElementById("rooms-2-hiddenValue");
-  // rooms_2.addEventListener("input", () => {
-  //   if (rooms_2.value.length === 0) {
-  //     rooms_2.value = 1;
-  //     rooms_2_hiddenValue.innerHTML = "1";
-  //   } else {
-  //     rooms_2_hiddenValue.innerHTML = rooms_2.value.substring(1);
-  //     rooms_2.value = rooms_2.value.substring(1);
-  //   }
-  // });
-
-
   // Telegram Web App
   Telegram.WebApp.ready();
-
   Telegram.WebApp.MainButton.show();
   Telegram.WebApp.MainButton.setText('Подтвердить');
   Telegram.WebApp.MainButton.onClick(() => {
@@ -254,7 +186,10 @@
     const rooms_from = +document.getElementById("rooms-1").value;
     const rooms_to = +document.getElementById("rooms-2").value;
 
-    const district = document.getElementById("districts").value;
+    const districts = [];
+    $('.multiselect-menu li.selected a').each(function() {
+      districts.push($(this).text());
+    });
 
     const owners = document.getElementById("checkbox-3-animals-yes").checked
 
@@ -267,7 +202,7 @@
       price_to,
       area_from,
       area_to,
-      district,
+      districts,
       rooms_from,
       rooms_to,
       owners,
@@ -275,7 +210,7 @@
 
     }
 
-    if ( price_from < price_to && area_from < area_to && rooms_from <= rooms_to && district && data.city ) {
+    if ( price_from < price_to && area_from < area_to && rooms_from <= rooms_to && districts && data.city ) {
       const dataString = JSON.stringify(data);
       Telegram.WebApp.sendData(dataString);
       webviewClose();
