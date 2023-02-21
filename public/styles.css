@@ -345,6 +345,10 @@ input {
     display: none;
 }
 
+::-webkit-scrollbar {
+    display: none;
+}
+
 .multiselect-menu li {
     background-color: var(--tg-theme-background-color);
     padding: 0;

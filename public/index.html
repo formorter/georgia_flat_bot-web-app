@@ -207,7 +207,7 @@
 
     const data = {
 
-      city: Tbilisi && Batumi ? '*' : Tbilisi ? "Tbilisi" : "Batumi",
+      city: Tbilisi && Batumi ? '*' : Tbilisi ? "Tbilisi" : Batumi ? "Batumi" : null,
       price_from,
       price_to,
       area_from,
@@ -236,16 +236,13 @@
         err_msg += `${err_count}) Площадь от должна быть меньше площади до\n`;
       }
 
-      if (district.length === 0) {
+      if (districts.length === 0) {
         err_msg += `${err_count}) район поиска должен быть выбран!\n`;
       }
 
       alert(err_msg);
     }
   }
-</script>
-<script>
-
 </script>
 </body>
 </html>
