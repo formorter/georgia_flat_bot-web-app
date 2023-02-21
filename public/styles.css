@@ -315,7 +315,7 @@ input {
     position: relative;
     width: 100%;
     z-index: 999;
-    background-color: var(--tg-theme-background-color);
+    background-color: #fff;
 }
 
 .multiselect-toggle {
@@ -342,7 +342,7 @@ input {
     -webkit-overflow-scrolling: touch;
     border: 1px solid #ccc;
     user-select: none;
-    background-color: var(--tg-theme-background-color);
+    background-color: #fff;
     padding: 10px;
     margin: 0;
     list-style: none;
@@ -355,7 +355,7 @@ input {
 }
 
 .multiselect-menu li {
-    background-color: var(--tg-theme-background-color);
+    background-color: #fff;
     padding: 0;
     margin: 0;
 }
@@ -369,23 +369,9 @@ input {
 
 .open .multiselect-menu {
     display: block;
-    animation: 0.4s ease multiselect-animation;
 }
 
 .open .multiselect-toggle {
     border-bottom-left-radius: 0;
     border-bottom-right-radius: 0;
-}
-
-@keyframes multiselect-animation {
-    from {
-        transform: translateY(-10px);
-        opacity: 0;
-    }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-
 }
