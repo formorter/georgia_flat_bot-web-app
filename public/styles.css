@@ -329,6 +329,7 @@ input {
     cursor: pointer;
     max-height: 50px;
     overflow-y: auto;
+    user-select: none;
 }
 
 .multiselect-menu {
@@ -337,8 +338,10 @@ input {
     left: 0;
     width: 100%;
     max-height: 100px;
-    overflow-y: scroll;
+    overflow: scroll;
+    -webkit-overflow-scrolling: touch;
     border: 1px solid #ccc;
+    user-select: none;
     background-color: var(--tg-theme-background-color);
     padding: 10px;
     margin: 0;
