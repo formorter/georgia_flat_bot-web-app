@@ -327,6 +327,8 @@ input {
     border-radius: 5px;
     background-color: #fff;
     cursor: pointer;
+    max-height: 50px;
+    overflow-y: auto;
 }
 
 .multiselect-menu {
