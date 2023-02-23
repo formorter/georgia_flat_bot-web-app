@@ -161,6 +161,13 @@
     </div>
 </div>
 <script>
+  $('#cost-1').focus(function () {
+    $(this).val("");
+  })
+  $('#cost-2').focus(function () {
+    $(this).val("");
+  })
+
 
   // Telegram Web App
   Telegram.WebApp.ready();
@@ -194,7 +201,7 @@
     const rooms_to = +document.getElementById("rooms-2").value;
 
     const districts = [];
-    $('.multiselect-menu li.selected a').each(function() {
+    $('.multiselect-menu li.selected a').each(function () {
       districts.push($(this).text());
     });
 
@@ -217,7 +224,7 @@
 
     }
 
-    if ( price_from < price_to && area_from < area_to && rooms_from <= rooms_to && districts && data.city ) {
+    if (price_from < price_to && area_from < area_to && rooms_from <= rooms_to && districts && data.city) {
       const dataString = JSON.stringify(data);
       Telegram.WebApp.sendData(dataString);
       webviewClose();
@@ -229,7 +236,7 @@
         err_msg += `${err_count}) Стоимость от должна быть меньше стоимости до\n`;
       }
 
-      if ( area_from > area_to) {
+      if (area_from > area_to) {
         err_msg += `${err_count}) Площадь от должна быть меньше площади до\n`;
       }
 
