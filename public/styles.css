@@ -25,7 +25,6 @@ body {
     background-color: var(--tg-theme-bg-color);
     scroll-padding-top: 5%;
     scroll-behavior: smooth;
-    overflow: scroll;
 
 }
 
@@ -33,6 +32,7 @@ label {
     font-weight: 500;
     font-size: 14px;
     color: var(--tg-theme-text-color);
+    word-break: break-word;
 }
 
 .header_box {
@@ -66,7 +66,7 @@ label {
     padding: 10px;
     grid-template-columns: 1fr 1fr;
     grid-column-gap: 5%;
-    overflow: scroll;
+    overflow-y: scroll;
     animation: form-fly-up 0.45s ease;
 
 }
@@ -148,7 +148,7 @@ label {
     font-size: 17px;
     font-weight: 500;
     color: var(--tg-theme-text-color);
-    word-break: break-all;
+    word-break: break-word;
 }
 
 .translucent {
@@ -339,7 +339,8 @@ input {
     top: 100%;
     left: 0;
     width: 100%;
-    max-height: 100px;
+    min-height: 150px;
+    max-height: 200px;
     overflow: scroll;
     -webkit-overflow-scrolling: touch;
     border: 1px solid #ccc;
@@ -352,9 +353,6 @@ input {
     display: none;
 }
 
-::-webkit-scrollbar {
-    display: none;
-}
 
 .multiselect-menu li {
     background-color: #fff;

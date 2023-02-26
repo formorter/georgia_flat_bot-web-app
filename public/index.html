@@ -65,6 +65,24 @@
             </div>
         </div>
         <script>
+          const correct_end = (name, n) => { // корректное окончание в зависимости от числительного
+            if (n === 1) {
+              return `${name}`;
+            }
+            else if (n === 2) {
+              return `${name}а`;
+            }
+            else if (n === 3) {
+              return `${name}а`;
+            }
+            else if (n === 4) {
+              return `${name}а`;
+            }
+            else {
+              return `${name}ов`;
+            }
+          }
+
           $(function() {
             // Show/hide the dropdown menu when the toggle button is clicked
             $('.multiselect-toggle').click(function() {
@@ -85,11 +103,11 @@
                 selectedItems.push($(this).text());
               });
               if (selectedItems.length === 0) {
-                $('.multiselect-toggle').text('Select items');
+                $('.multiselect-toggle').text('Выбрать районы');
               } else if (selectedItems.length < 3) {
                 $('.multiselect-toggle').text(selectedItems.join(', '));
               } else {
-                $('.multiselect-toggle').text(selectedItems.length + ' items selected');
+                $('.multiselect-toggle').text(selectedItems.length + ` ${correct_end('район', selectedItems.length)} выбрано`);
               }
             }
           });
@@ -162,10 +180,7 @@
     </div>
 </div>
 <script>
-  $('#cost-1').focus(function () {
-    $(this).val("");
-  })
-  $('#cost-2').focus(function () {
+  $('input').focus(function () {
     $(this).val("");
   })
 
