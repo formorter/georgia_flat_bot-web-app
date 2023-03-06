@@ -16,6 +16,7 @@
       function setThemeClass() {
         document.documentElement.className = Telegram.WebApp.colorScheme;
       }
+
       Telegram.WebApp.onEvent('themeChanged', setThemeClass);
       setThemeClass();
       Telegram.WebApp.expand();
@@ -68,38 +69,35 @@
           const correct_end = (name, n) => { // корректное окончание в зависимости от числительного
             if (n === 1) {
               return `${name}`;
-            }
-            else if (n === 2) {
+            } else if (n === 2) {
               return `${name}а`;
-            }
-            else if (n === 3) {
+            } else if (n === 3) {
               return `${name}а`;
-            }
-            else if (n === 4) {
+            } else if (n === 4) {
               return `${name}а`;
-            }
-            else {
+            } else {
               return `${name}ов`;
             }
           }
 
-          $(function() {
+          $(function () {
             // Show/hide the dropdown menu when the toggle button is clicked
-            $('.multiselect-toggle').click(function() {
+            $('.multiselect-toggle').click(function () {
               $(this).parent().toggleClass('open');
               return false;
             });
 
             // Update the toggle button text when an item is clicked
-            $('.multiselect-menu li a').click(function() {
+            $('.multiselect-menu li a').click(function () {
               $(this).parent().toggleClass('selected');
               updateToggleButton();
               return false;
             });
+
             // Update the toggle button text based on the selected items
             function updateToggleButton() {
               const selectedItems = [];
-              $('.multiselect-menu li.selected a').each(function() {
+              $('.multiselect-menu li.selected a').each(function () {
                 selectedItems.push($(this).text());
               });
               if (selectedItems.length === 0) {
@@ -115,7 +113,7 @@
 
     </div>
     <div class="wrapper">
-        <input id="cost-1" class="input-with-mark" type="number" value=1 min=1 step="1" max=9999999/>
+        <input id="cost-1" class="input-with-mark" type="number" value=1 min=1 step="1" max=9999999>
         <label for="cost-1" class="cost-label">Стоимость от</label>
         <div class="units">
             <span class="units-value" id="cost-1-unitsValue"> $</span>
@@ -224,6 +222,25 @@
     const owners = document.getElementById("checkbox-3-animals-yes").checked
 
     const photo = document.getElementById("checkbox-4-photo-yes").checked
+
+    function checkParams() {
+      const priceValid = (price) => {
+        return /^\d{1,7}/.test(price.toString());
+      }
+      const areaValid = (area) => {
+        return /^\d{1,4}/.test(area.toString());
+      }
+      const roomsValid = (rooms) => {
+        return /^\d{1,3}/.test(rooms.toString());
+      }
+
+      return priceValid(price_from) && priceValid(price_to) && areaValid(area_from) && areaValid(area_to) && roomsValid(rooms_from) && roomsValid(rooms_to);
+
+    }
+
+    if (!checkParams()){
+      alert("Некорректные данные. Пожалуйста, проверьте правильность введенных данных.")
+    }
 
     const data = {
 
